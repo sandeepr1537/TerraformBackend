@@ -36,14 +36,16 @@ terraform {
     key                   = "terraform.tfstate"
   }
 }
+
 Here’s what each of these fields represents:
 
 resource_group_name: The name of the resource group where your storage account is located.
 storage_account_name: The name of the storage account.
 container_name: The name of the container within the storage account to store the state file.
 key: The name of the state file (typically terraform.tfstate).
-Initialize the Backend:
 
+
+Initialize the Backend:
 Run terraform init to initialize the backend. Terraform will configure the backend and migrate any existing state to the remote backend.
 
 terraform init
@@ -83,6 +85,8 @@ resource "azurerm_subnet" "main" {
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.0.1.0/24"]
 }
+
+
 Benefits of Using the AzureRM Backend
 State Locking: Prevents concurrent operations, reducing the risk of state corruption.
 Collaboration: Multiple team members can work on the same infrastructure.
